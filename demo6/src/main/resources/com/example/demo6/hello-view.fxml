@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20.0"
+      prefHeight="682.0" prefWidth="699.0"
+      xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.demo6.HelloController">
+
+    <padding>
+        <Insets top="20" bottom="20" left="20" right="20"/>
+    </padding>
+
+    <children>
+
+        <Label text="Simple POS" textAlignment="CENTER"
+               prefWidth="105" prefHeight="27">
+            <font><Font name="System Bold" size="18"/></font>
+        </Label>
+
+        <AnchorPane prefWidth="666" prefHeight="583">
+            <children>
+
+                <!-- CUSTOMER INFO -->
+                <Label text="Customer Name" layoutX="26" layoutY="14">
+                    <font><Font name="System Bold" size="12"/></font>
+                </Label>
+                <TextField fx:id="CName" layoutX="121" layoutY="19"
+                           prefWidth="233" prefHeight="26"/>
+
+                <Label text="Address" layoutX="26" layoutY="49">
+                    <font><Font name="System Bold" size="12"/></font>
+                </Label>
+                <TextField fx:id="Address" layoutX="121" layoutY="53"
+                           prefWidth="233" prefHeight="26"/>
+
+                <!-- Member -->
+                <fx:define>
+                    <ToggleGroup fx:id="memberGroup"/>
+                </fx:define>
+
+                <Label text="Member" layoutX="26" layoutY="84">
+                    <font><Font name="System Bold" size="12"/></font>
+                </Label>
+
+                <RadioButton fx:id="RYes" text="YES"
+                             layoutX="133" layoutY="93"
+                             toggleGroup="$memberGroup"
+                             onAction="#onYesClick"/>
+
+                <RadioButton fx:id="RNO" text="NO"
+                             layoutX="196" layoutY="93"
+                             toggleGroup="$memberGroup"
+                             onAction="#onNoClick"/>
+
+                <!-- ITEM INPUT -->
+                <Label text="Enter Item Code" layoutX="26" layoutY="118">
+                    <font><Font name="System Bold" size="12"/></font>
+                </Label>
+                <TextField fx:id="ItemCode" layoutX="121" layoutY="123"
+                           prefWidth="234" prefHeight="26"/>
+
+                <Button fx:id="Add" text="ADD"
+                        layoutX="365" layoutY="124"
+                        onAction="#onAddClick">
+                    <font><Font name="System Bold" size="12"/></font>
+                </Button>
+
+                <Button fx:id="Remove" text="REMOVE"
+                        layoutX="416" layoutY="124"
+                        onAction="#onRemoveClick">
+                    <font><Font name="System Bold" size="12"/></font>
+                </Button>
+
+                <!-- TABLE -->
+                <TableView fx:id="table"
+                           layoutX="24" layoutY="160"
+                           prefWidth="616" prefHeight="179">
+                    <columns>
+                        <TableColumn fx:id="Itemcode" text="ITEM CODE" prefWidth="91"/>
+                        <TableColumn fx:id="Desc" text="DESCRIPTION" prefWidth="260"/>
+                        <TableColumn fx:id="UnitP" text="UNIT PRICE" prefWidth="107"/>
+                        <TableColumn fx:id="QTY" text="QTY" prefWidth="49"/>
+                        <TableColumn fx:id="Amount" text="AMOUNT" prefWidth="103"/>
+                    </columns>
+                </TableView>
+
+                <!-- TOTALS -->
+                <Label text="TOTAL AMOUNT" layoutX="428" layoutY="341">
+                    <font><Font name="System Bold" size="12"/></font>
+                </Label>
+                <TextField fx:id="TAmount" disable="true"
+                           layoutX="535" layoutY="346"
+                           prefWidth="106"/>
+
+                <Label text="DISCOUNT" layoutX="428" layoutY="371">
+                    <font><Font name="System Bold" size="12"/></font>
+                </Label>
+                <TextField fx:id="Discount" disable="true"
+                           layoutX="535" layoutY="376"
+                           prefWidth="106"/>
+
+                <Label text="AMOUNT TO PAY" layoutX="428" layoutY="401">
+                    <font><Font name="System Bold" size="12"/></font>
+                </Label>
+                <TextField fx:id="AmountPay" disable="true"
+                           layoutX="535" layoutY="406"
+                           prefWidth="106"/>
+
+            </children>
+        </AnchorPane>
+
+    </children>
+</VBox>
